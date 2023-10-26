@@ -1,0 +1,38 @@
+<nav>
+  <div class="right">
+    <a href="/logout"><i class="bi bi-power"></i></a>
+  </label>
+  </div>
+</nav>
+<div class="wrapper-detail">
+  <a href="/account"><i class="bi bi-arrow-left-circle"></i></a>
+  <div class="container-detail">
+    <div class="title">
+      <span>
+        <h4><%= detailPost.title %></h4>
+      </span>
+      <span class="date">
+        <a href="" class="uploader"><%= userPost.username %></a>
+         on <%= moment(detailPost.created_at).format('LL') %>
+         <a href="/edit-post/<%= detailPost.id_post %>"><i class="bi bi-pencil-square"></i></a>
+     </span>
+    </div>
+    <div class="post-body">
+      <%- detailPost.description %>
+    </div>
+    <div class="uploaded-file-wrapper">
+      <div class="content">
+        <i class="bi bi-file-earmark-text"></i>
+        <span>
+          <%
+          var fileName = detailPost.uploaded_file;
+          var result = fileName.substring(fileName.indexOf('-') + 1);
+          %>
+          <span class="filename"><%= result %></span>
+          <span class="size"><%= fileSizeInKilobytes %></span>
+        </span>
+        <a href="/download/<%= detailPost.id_user %>/<%= detailPost.id_post %>">Download</a>
+      </div>
+    </div>
+  </div>
+</div>

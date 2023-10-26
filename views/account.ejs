@@ -1,0 +1,63 @@
+<nav>
+  <div class="left">
+    <form action="/search" method="get">
+      <div class="search">
+        <input name="query" placeholder="Search..." type="text">
+        <button type="submit">Go</button>
+      </div>        
+    </form>
+  </div>
+  <div class="right">
+    <a href="/logout"><i class="bi bi-power"></i></a>
+  </label>
+  </div>
+</nav>
+
+<div class="wrapper-account">
+  <div class="container-account">
+    <div class="left">
+        <div class="pic">
+          <% if (user.avatar) { %>
+            <img src="./img/<%= user.avatar %>">
+          <% } else { %>
+            <img src="./img/user.jpg"  >
+          <% } %>
+        </div>
+    </div>
+    <div class="right">
+      <div class="top">
+        <span>
+          <h5 class="username"><%= user.username %></h5>
+          <p><%= user.nim %></p>
+        </span>
+        <a href="/edit-account"><i class="bi bi-pencil-square"></i></a>
+      </div>
+      <p class="about"><%= user.about %></p>
+    </div>
+</div>
+<div class="more-project-title">
+  <h4>More from <%= user.username %></h4>
+</div>
+<div class="user-projects">
+  <% dataPost.forEach(function(post) { %>
+  <a href="/detail-post-user/<%= post.id_post %>" class="row-project row-user-projects">
+    <h4 class="title"><%= post.title %></h4>
+    <p class="subtitle"><%= post.excerpt %></p>
+    <div class="row-user">
+      <img class="user" src="../img/<%= user.avatar %>">
+      <span class="nama"><%= user.username %></span>
+    </div>
+  </a>
+  <% }); %>
+  <% dataKuis.forEach(function(kuis) { %>
+  <a href="/detail-kuisioner-user/<%= kuis.id_kuisioner %>" class="row-project row-user-projects">
+    <h4 class="title"><%= kuis.title %></h4>
+    <p class="subtitle"><%= kuis.excerpt %></p>
+    <div class="row-user">
+      <img class="user" src="../img/<%= user.avatar %>">
+      <span class="nama"><%= user.username %></span>
+    </div>
+  </a>
+  <% }); %>
+</div>
+</div>

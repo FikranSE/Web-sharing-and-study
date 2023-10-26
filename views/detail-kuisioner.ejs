@@ -1,0 +1,21 @@
+<nav>
+  <div class="right">
+    <a href="/logout"><i class="bi bi-power"></i></a>
+  </label>
+  </div>
+</nav>
+<div class="wrapper-detail">
+  <a href="/projects"><i class="bi bi-arrow-left-circle"></i></a>
+  <div class="container-detail">
+    <div class="title">
+      <h4><%= detailKuisioner.title %></h4>
+      <span class="date">
+        <a href="" class="uploader"><%= detailKuisioner.username %></a>
+         on <%= moment(detailKuisioner.created_at).format('LL') %>
+     </span>
+    </div>
+    <div class="post-body">
+      <%- detailKuisioner.description %>
+    </div>
+  </div>
+</div>

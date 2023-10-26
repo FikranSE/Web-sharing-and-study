@@ -1,0 +1,25 @@
+<nav>
+  <div class="right">
+    <a href="/logout"><i class="bi bi-power"></i></a>
+  </label>
+  </div>
+</nav>
+<div class="more-project-title">
+  <h4>Search for "<%= query %>"</h4>
+</div>
+<div class="user-projects">
+  <% if (results.length === 0) { %>
+    <p style="text-align:center;">No results found.</p>
+  <% } else { %>
+  <% results.forEach(function(result) { %>
+  <a href="/detail-post-user/<%= result.id_post %>" class="row-project row-user-projects">
+    <h4 class="title"><%= result.title %></h4>
+    <p class="subtitle"><%= result.excerpt %></p>
+    <div class="row-user">
+      <img class="user" src="../img/<%= result.avatar %>">
+      <span class="nama"><%= result.username %></span>
+    </div>
+  </a>
+  <% }); %>
+  <% } %>
+</div>

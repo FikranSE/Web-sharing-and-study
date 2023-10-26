@@ -1,0 +1,72 @@
+<nav>
+  <div class="left">
+    <form action="/search" method="get">
+      <div class="search">
+        <input name="query" placeholder="Search..." type="text">
+        <button type="submit">Go</button>
+      </div>        
+    </form>
+  </div>
+  <div class="right">
+    <a href="/logout"><i class="bi bi-power"></i></a>
+  </label>
+  </div>
+</nav>
+
+<div class="wrapper-projects">
+  <div class="col-project">
+    <div class="top-col">
+      <span>Moduls</span>
+      <span>
+      <a href="/post"><i class="bi bi-plus-lg"></i></a>
+      </span>
+    </div>
+    <% dataModuls.forEach(function(modul) { %>
+    <a href="/detail/<%= modul.id_post %>" class="row-project">
+      <h4 class="title"><%= modul.title %></h4>
+      <p class="subtitle"><%= modul.excerpt %></p>
+      <div class="row-user">
+          <img class="user" src="../img/<%= modul.avatar %>">
+          <span class="nama"><%= modul.username %></span>
+        </div>
+    </a>
+    <% }); %>
+  </div>
+  <div class="col-project">
+    <div class="top-col">
+      <span>Projects</span>
+      <span>
+      <a href="/post"><i class="bi bi-plus-lg"></i></a>
+      </span>
+    </div>
+    <% dataProjects.forEach(function(project) { %>
+      <a href="/detail/<%= project.id_post %>" class="row-project">
+        <h4 class="title"><%= project.title %></h4>
+        <p class="subtitle"><%= project.excerpt %></p>
+        <div class="row-user">
+          <img class="user" src="../img/<%= project.avatar %>">
+          <span class="nama"><%= project.username %></span>
+        </div>
+      </a>
+      <% }); %>
+  </div>
+  <div class="col-project">
+    <div class="top-col">
+      <span>Kuisioners</span>
+      <span>
+      <a href="/post-kuisioner"><i class="bi bi-plus-lg"></i></a>
+      </span>
+    </div>
+    <% dataKuisioner.forEach(function(kuisioner) { %>
+      <a href="/detail-kuisioner/<%= kuisioner.id_kuisioner %>" class="row-project">
+        <h4 class="title"><%= kuisioner.title %></h4>
+        <p class="subtitle"><%= kuisioner.excerpt %></p>
+        <div class="row-user">
+          <img class="user" src="../img/<%= kuisioner.avatar %>">
+          <span class="nama"><%= kuisioner.username %></span>
+        </div>
+      </a>
+      <% }); %>
+  </div>
+
+</div>
